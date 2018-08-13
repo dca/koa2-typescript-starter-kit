@@ -1,34 +1,17 @@
-import * as Koa from 'koa'
-import * as bodyParser from 'koa-bodyparser'
-import * as Router from 'koa-router'
-import * as cors from '@koa/cors'
+import { Container } from 'typedi'
+import { createKoaServer, useContainer } from 'routing-controllers'
+import { UsersController } from './controller/UsersController'
+import { initDatabase } from './database'
 
-//
-const app = new Koa()
-const router = new Router()
+useContainer(Container)
 
-router.get('/', (ctx: Koa.Context) => {
-  ctx.body = { message: 'Hello World' }
+initDatabase()
+
+const app = createKoaServer({
+  controllers: [
+    UsersController
+  ]
 })
-
-app.use(cors({
-  // origin: '*'
-}))
-app.use(bodyParser())
-app.use(router.routes())
-app.use(router.allowedMethods())
 
 //
 export default app
-
-/*
-*
-*/
-app.on('error', (err: any, ctx: Koa.Context) => {
-  console.error(err)
-})
-
-process.on('unhandledRejection', error => {
-  console.error('unhandledRejection', error)
-  process.exit(1)
-})

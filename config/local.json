@@ -1,0 +1,8 @@
+{
+  "database": {
+    "password": "root"
+  },
+  "mailer": {
+
+  }
+}
