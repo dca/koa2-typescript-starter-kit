@@ -1,12 +1,20 @@
-import { Get, JsonController, Param, QueryParams } from 'routing-controllers'
+import { Get, JsonController, Param, QueryParams, Post, Body } from 'routing-controllers'
 import { Inject, Service } from 'typedi'
-import { IsNumberString, IsIn, IsString } from 'class-validator'
+import { IsNumberString, IsEmail, IsString } from 'class-validator'
 import { UserService } from '../../../src/service/UserService'
 import { User } from '../../../src/entity/User'
 
 export class UserQuery {
   @IsNumberString() public limit: string = '20'
   @IsNumberString() public offset: string = '0'
+}
+
+export class UserBody {
+  @IsEmail()
+  public email: string
+
+  @IsString()
+  public password: string
 }
 
 @Service()
@@ -22,5 +30,11 @@ export class UsersController {
     return {
       data
     }
+  }
+
+  @Post('/')
+  public async post (@Body() data: UserBody): Promise<{ data: User }> {
+    const user = await this.userService.create(data)
+    return { data: user }
   }
 }

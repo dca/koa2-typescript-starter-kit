@@ -12,4 +12,10 @@ export class UserService {
   public async list (offset: number, limit: number): Promise<[User[], number]> {
     return this.userRepository.getList(offset, limit)
   }
+
+  public async create (data: any) {
+    const user = new User()
+    await this.userRepository.merge(user, { ...data })
+    return this.userRepository.save(user)
+  }
 }
