@@ -5,7 +5,7 @@ module.exports = {
   },
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "testPathIgnorePatterns": [
-    "<rootDir>/build/",
+    "<rootDir>/dist/",
     "<rootDir>/node_modules/"
   ],
   "modulePaths": [
@@ -30,6 +30,10 @@ module.exports = {
   "coverageReporters": [
     "lcov"
   ],
+  "moduleNameMapper": {
+    "@src/(.*)": "<rootDir>/src/$1",
+    "@test/(.*)": "<rootDir>/test/$1"
+  },
   "globals": {
     "ts-jest": {
     }

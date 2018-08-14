@@ -1,4 +1,4 @@
-import { request } from '../init'
+import { request } from '@test/init'
 import * as Debug from 'debug'
 const debug = Debug('test:api:index')
 

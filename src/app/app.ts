@@ -1,6 +1,6 @@
 import { Container } from 'typedi'
 import { createKoaServer, useContainer } from 'routing-controllers'
-import { UsersController } from './controller/UsersController'
+import { UsersController } from '@src/app/controller/UsersController'
 
 useContainer(Container)
 

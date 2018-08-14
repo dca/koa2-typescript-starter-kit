@@ -1,6 +1,6 @@
 import { Service } from 'typedi'
 import { EntityRepository, Repository, Connection } from 'typeorm'
-import { User } from '../../src/entity/User'
+import { User } from '@src/entity/User'
 import { InjectConnection } from 'typeorm-typedi-extensions'
 
 @Service()

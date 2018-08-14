@@ -1,7 +1,8 @@
+require('module-alias/register')
 
 import * as Koa from 'koa'
-import app from './app/app'
-import { initDatabase } from './app/database'
+import app from '@src/app/app'
+import { initDatabase } from '@src/app/database'
 import * as Debug from 'debug'
 const debug = Debug('app:start')
 //

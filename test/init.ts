@@ -1,6 +1,6 @@
 import * as supertest from 'supertest'
-import app from 'src/app/app'
-import { initDatabase } from 'src/app/database'
+import app from '@src/app/app'
+import { initDatabase } from '@src/app/database'
 import { getConnection } from 'typeorm'
 import * as debug from 'debug'
 

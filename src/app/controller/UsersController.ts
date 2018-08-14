@@ -1,8 +1,8 @@
 import { Get, JsonController, Param, QueryParams, Post, Body } from 'routing-controllers'
 import { Inject, Service } from 'typedi'
 import { IsNumberString, IsEmail, IsString } from 'class-validator'
-import { UserService } from '../../../src/service/UserService'
-import { User } from '../../../src/entity/User'
+import { UserService } from '@src/service/UserService'
+import { User } from '@src/entity/User'
 
 export class UserQuery {
   @IsNumberString() public limit: string = '20'
