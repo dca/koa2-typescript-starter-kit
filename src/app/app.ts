@@ -1,14 +1,11 @@
-import { Container } from 'typedi'
-import { createKoaServer, useContainer } from 'routing-controllers'
-import { UsersController } from '@src/app/controller/UsersController'
+import * as Koa from 'koa'
+import { injectRoutingController } from './routing'
 
-useContainer(Container)
+//
+const app = new Koa()
 
-const app = createKoaServer({
-  controllers: [
-    UsersController
-  ]
-})
+//
+injectRoutingController(app)
 
 //
 export default app
