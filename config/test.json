@@ -1,3 +1,11 @@
 {
-
+  "database": {
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "travis",
+    "password": "",
+    "database": "koa2_typescript_starter_kit",
+    "synchronize": true
+  }
 }

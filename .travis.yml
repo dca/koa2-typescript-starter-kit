@@ -3,3 +3,8 @@ node_js:
   - "8"
   - "10"
 
+services:
+  - mysql
+
+before_install:
+- mysql -e 'CREATE DATABASE koa2_typescript_starter_kit;'
